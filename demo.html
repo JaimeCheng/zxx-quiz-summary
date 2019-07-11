@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>sssssssssssss</div>
+  <a href="/">index</a>
+  <a href="#home">home</a>
+  <a href="http://www.baidu.com">baidu</a>
+  <a href="javascript:;">js</a>
+  <a> aaaa </a>
+  <script>
+    var a = document.getElementsByTagName('a')
+    console.log(a)
+    var link = document.querySelectorAll('[href]');
+    console.log(link)
+    console.log(location.host)
+    link.forEach(el => {
+      const val = el.getAttribute('href');
+      if (val.indexOf('javascript:') === 0) {
+        el.setAttribute('role', 'button')
+      }
+      if (val.indexOf('#') === 0) {
+        el.setAttribute('rel', 'internal');
+      }
+      if (el.host !== location.host) {
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'external nofollow noopener');
+      }
+    })
+
+  </script>
+</body>
+</html>
