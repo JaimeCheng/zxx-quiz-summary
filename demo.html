@@ -14,24 +14,26 @@
   <a href="javascript:;">js</a>
   <a> aaaa </a>
   <script>
-    var a = document.getElementsByTagName('a')
-    console.log(a)
-    var link = document.querySelectorAll('[href]');
-    console.log(link)
-    console.log(location.host)
-    link.forEach(el => {
-      const val = el.getAttribute('href');
-      if (val.indexOf('javascript:') === 0) {
-        el.setAttribute('role', 'button')
-      }
-      if (val.indexOf('#') === 0) {
-        el.setAttribute('rel', 'internal');
-      }
-      if (el.host !== location.host) {
-        el.setAttribute('target', '_blank');
-        el.setAttribute('rel', 'external nofollow noopener');
-      }
-    })
+  // 正确
+  var links = document.links;
+  // document.querySelectorAll(':link')
+  console.log(links);
+
+  // 考虑兼容性就转为数组再用for循环
+  links = [].slice.call(links)
+  for(var i=0;i<links.length;i++){
+    const val = links[i].getAttribute("href");
+    if (val.indexOf("javascript:") === 0) {
+      links[i].setAttribute("role", "button");
+    }
+    if (val.indexOf("#") === 0) {
+      links[i].setAttribute("rel", "internal");
+    }
+    if (links[i].host !== location.host) {
+      links[i].setAttribute("target", "_blank");
+      links[i].relList.add('external', 'nofollow', 'noopener')
+    }
+  }
 
   </script>
 </body>
