@@ -5,36 +5,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    @media screen and (min-width: 375px) {
+      html {
+        font-size: calc(100% + 2 * (100vw - 375px) / 39);
+        font-size: calc(16px + 2 * (100vw - 375px) / 39);
+      }
+    }
+    @media screen and (min-width: 414px) {
+      html {
+        font-size: calc(112.5% + 2 * (100vw - 414px) / 586);
+        font-size: calc(18px + 2 * (100vw - 414px) / 586);
+      }
+    }
+    ul, li {
+      list-style: none;
+    }
+    .article {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+    }
+    .article-item {
+      display: flex;
+    }
+    .article-item__title {
+      color: #9A9EA4;
+      font-size: 1rem;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .article-item__title.prefix {
+      direction: rtl;
+    }
+    .article-item__tags {
+      float: right;
+      margin-left: 5px;
+    }
+    .article-item__tags span {
+      padding: 0 3px;
+      font-size: 0.73rem;
+      border-radius: 2px;
+    }
+    .article-item__tags__category {
+      color: #A5ABB1;
+      border: 1px solid #A5ABB1;
+    }
+    .article-item__tags__status {
+      color: #EE4E54;
+      border: 1px solid #EE4E54;
+    }
+    .article-item__tags__count {
+      color: #5391EF;
+      border: 1px solid #5391EF;
+    }
+  </style>
 </head>
 <body>
-  <div>sssssssssssss</div>
-  <a href="/">index</a>
-  <a href="#home">home</a>
-  <a href="http://www.baidu.com">baidu</a>
-  <a href="javascript:;">js</a>
-  <a> aaaa </a>
-  <script>
-  // 正确
-  var links = document.links;
-  // document.querySelectorAll(':link')
-  console.log(links);
-
-  // 考虑兼容性就转为数组再用for循环
-  links = [].slice.call(links)
-  for(var i=0;i<links.length;i++){
-    const val = links[i].getAttribute("href");
-    if (val.indexOf("javascript:") === 0) {
-      links[i].setAttribute("role", "button");
-    }
-    if (val.indexOf("#") === 0) {
-      links[i].setAttribute("rel", "internal");
-    }
-    if (links[i].host !== location.host) {
-      links[i].setAttribute("target", "_blank");
-      links[i].relList.add('external', 'nofollow', 'noopener')
-    }
-  }
-
-  </script>
+  <div class="article">
+    <ul class="article-list">
+      <li class="article-item">
+        <div class="article-item__title suffix">这次是一个新的故事。浩劫余生终见光明</div>
+        <div class="article-item__tags">
+          <span class="article-item__tags__category">都市</span>
+          <span class="article-item__tags__status">连载中</span>
+          <span class="article-item__tags__count">54.82万字</span>
+        </div>
+      </li>
+      <li class="article-item">
+        <div class="article-item__title suffix">穿越天地复苏的平行世界偶获诸天聊天群</div>
+        <div class="article-item__tags">
+          <span class="article-item__tags__category">都市</span>
+          <span class="article-item__tags__status">完本</span>
+          <span class="article-item__tags__count">1万字</span>
+        </div>
+      </li>
+      <li class="article-item">
+        <div class="article-item__title suffix">修真四万年</div>
+        <div class="article-item__tags">
+          <span class="article-item__tags__category">科幻</span>
+          <span class="article-item__tags__status">完本</span>
+          <span class="article-item__tags__count">1059.98万字</span>
+        </div>
+      </li>
+    </ul>
+    <ul class="article-list">
+      <li class="article-item">
+        <div class="article-item__title prefix">这次是一个新的故事。浩劫余生终见光明</div>
+        <div class="article-item__tags">
+          <span class="article-item__tags__category">都市</span>
+          <span class="article-item__tags__status">连载中</span>
+          <span class="article-item__tags__count">54.82万字</span>
+        </div>
+      </li>
+      <li class="article-item">
+        <div class="article-item__title prefix">穿越天地复苏的平行世界偶获诸天聊天群</div>
+        <div class="article-item__tags">
+          <span class="article-item__tags__category">都市</span>
+          <span class="article-item__tags__status">完本</span>
+          <span class="article-item__tags__count">1万字</span>
+        </div>
+      </li>
+      <li class="article-item">
+        <div class="article-item__title prefix">修真四万年</div>
+        <div class="article-item__tags">
+          <span class="article-item__tags__category">科幻</span>
+          <span class="article-item__tags__status">完本</span>
+          <span class="article-item__tags__count">1059.98万字</span>
+        </div>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
