@@ -5,151 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-  * {
-    padding: 0;
-    margin: 0;
-  }
-  @media screen and (min-width: 375px) {
-    html {
-      font-size: calc(100% + 2 * (100vw - 375px) / 39);
-      font-size: calc(16px + 2 * (100vw - 375px) / 39);
-    }
-  }
-  @media screen and (min-width: 414px) {
-    html {
-      font-size: calc(112.5% + 2 * (100vw - 414px) / 586);
-      font-size: calc(18px + 2 * (100vw - 414px) / 586);
-    }
-  }
-  a {
-    color: unset;
-    text-decoration: none;
-  }
-  ul, li {
-    list-style: none;
-  }
-  .article {
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    padding: 15px;
-    box-sizing: border-box;
-  }
-  .article-item {
-    line-height: 1.6rem;
-    /* flex */
-    /* display: flex; */
-    /* float */
-    /* overflow: hidden; */
-    /* table */
-    display: table;
-  }
-  .article-item__title {
-    /* flex */
-    /* flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;  */
-    /* table */
-    display: table-cell;
-    width: 2000px;
-  }
-  .article-item__title.prefix {
-    direction: rtl;
-  }
-  .article-item__title a {
-    display: table;
-    table-layout: fixed;
-    width: 100%
-  }
-  .article-item__title a p{
-    color: #9A9EA4;
-    font-size: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: left;
-  }
-  .article-item__tags {
-    padding-left: 10px;
-    /* float */
-    /* float: right; */
-    /* table */
-    display: table-cell;
-    white-space: nowrap;
-  }
-  .article-item__tags span {
-    padding: 0 3px;
-    font-size: 0.73rem;
-    border-radius: 2px;
-    border: 1px solid;
-  }
-  .article-item__tags span[type="category"] {
-    color: #A5ABB1;
-  }
-  .article-item__tags span[type="status"] {
-    color: #EE4E54;
-  }
-  .article-item__tags span[type="count"] {
-    color: #5391EF;
-  }
-  </style>
 </head>
 <body>
-  <div class="article">
-    <ul class="article-list">
-      <li class="article-item">
-        <div class="article-item__title suffix"><a href=""><p>这次是一个新的故事。浩劫余生终见光明</p></a></div>
-        <div class="article-item__tags">
-          <span type="category">都市</span>
-          <span type="status">连载中</span>
-          <span type="count">54.82万字</span>
-        </div>
-      </li>
-      <li class="article-item">
-        <div class="article-item__title suffix"><a href=""><p>穿越天地复苏的平行世界偶获诸天聊天群</p></a></div>
-        <div class="article-item__tags">
-          <span type="category">都市</span>
-          <span type="status">完本</span>
-          <span type="count">1万字</span>
-        </div>
-      </li>
-      <li class="article-item">
-        <div class="article-item__title suffix"><a href=""><p>修真四万年</p></a></div>
-        <div class="article-item__tags">
-          <span type="category">科幻</span>
-          <span type="status">完本</span>
-          <span type="count">1059.98万字</span>
-        </div>
-      </li>
-    </ul>
-    <ul class="article-list">
-      <li class="article-item">
-        <div class="article-item__title prefix"><a href=""><p>这次是一个新的故事。浩劫余生终见光明</p></a></div>
-        <div class="article-item__tags">
-          <span type="category">都市</span>
-          <span type="status">连载中</span>
-          <span type="count">54.82万字</span>
-        </div>
-      </li>
-      <li class="article-item">
-        <div class="article-item__title prefix"><a href=""><p>穿越天地复苏的平行世界偶获诸天聊天群</p></a></div>
-        <div class="article-item__tags">
-          <span type="category">都市</span>
-          <span type="status">完本</span>
-          <span type="count">1万字</span>
-        </div>
-      </li>
-      <li class="article-item">
-        <div class="article-item__title prefix"><a href=""><p>修真四万年</p></a></div>
-        <div class="article-item__tags">
-          <span type="category">科幻</span>
-          <span type="status">完本</span>
-          <span type="count">1059.98万字</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <script>
+    const object1 = {
+      userid: 123,
+      username: 'jaime',
+      tel: '18812612345'
+    }
+    // encodeURI()和encodeURIComponent()都是对URL编码的函数
+    // encodeURI()主要用于整个 URI(例如，http://www.wrox.com/illegal value.htm)，
+    // encodeURIComponent()主要用于对 URI 中的某一段(例如前面 URI 中的 illegal value.htm)进行编码。 
+    // 它们的主要区别在于，encodeURI()不会对本身属于 URI 的特殊字符进行编码，例如冒号、正斜杠、 问号和井字号;
+    // encodeURIComponent()则会对它发现的任何非标准字符进行编码
+    // 这也正是可以 对整个 URI 使用 encodeURI()，而只能对附加在现有 URI 后面的字符串使用 encodeURIComponent() 的原因所在
+    // 一般来说，我们使用 encodeURIComponent()方法的时候要比使用 encodeURI()更多，因为在实践中更常见的是对查询字符串参数而不是对基础 URI 进行编码。
+
+    // 转查询字符串
+    const qr = new URLSearchParams(object1).toString()
+    const qr1 = Object.entries(object1).map(item => `${item[0]}=${encodeURIComponent(item[1])}`).join('&')
+    const qr2 = Object.entries(object1).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')
+    console.log(qr2)
+
+    // 获取url第一个?后的查询内容包括问号
+    var queryStr = decodeURIComponent(location.search)
+    console.log(queryStr)
+
+    // 上述内容转json
+    // arr.map(([k,v]) => ({[k]: v})) 记个笔记
+    const arr = queryStr.split("?")[1].split("&").map(item => item.split('='))
+    var obj1 = Object.fromEntries(arr)
+    const obj2 = arr.reduce((sum, [k,v]) => ({ ...sum, [k]:v }), {})
+    // 这里有问题，重复的key会被覆盖
+    console.log(arr)
+
+    // 如果键有重复则值以数组呈现
+    var res = {}
+    arr.forEach(item => {
+      if (!res[item[0]]) {
+        res[item[0]] = item[1]
+      } else {
+        res[item[0]] = (res[item[0]]+','+item[1]).split(',')
+      }
+    })
+    console.log(res)
+  </script>
 </body>
 </html>
