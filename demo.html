@@ -37,18 +37,33 @@
     var obj1 = Object.fromEntries(arr)
     const obj2 = arr.reduce((sum, [k,v]) => ({ ...sum, [k]:v }), {})
     // 这里有问题，重复的key会被覆盖
-    console.log(arr)
+    console.log(obj2)
+
+    // 
+    var urlSearchParams = new URLSearchParams(location.search)
+    var urlObj = {}
+    for (let [key, value] of urlSearchParams.entries()) {
+      urlObj[key] = value
+    }
+    console.log(urlObj)
 
     // 如果键有重复则值以数组呈现
-    var res = {}
-    arr.forEach(item => {
-      if (!res[item[0]]) {
-        res[item[0]] = item[1]
-      } else {
-        res[item[0]] = (res[item[0]]+','+item[1]).split(',')
-      }
-    })
-    console.log(res)
+    // var res = {}
+    // arr.forEach(item => {
+    //   if (!res[item[0]]) {
+    //     res[item[0]] = item[1]
+    //   } else {
+    //     res[item[0]] = (res[item[0]]+','+item[1]).split(',')
+    //   }
+    // })
+    // console.log(res)
+
+    const obj5 = {}
+    const myParams = new URLSearchParams(location.search)
+    for (var p of myParams.keys()){
+      obj5[p]=myParams.getAll(p).length > 1 ? myParams.getAll(p) : myParams.get(p);
+    };
+    console.log(obj5)
   </script>
 </body>
 </html>
