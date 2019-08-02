@@ -7,63 +7,32 @@
   <title>Document</title>
 </head>
 <body>
+  <form id="loginForm" action="/account/login" method="post">
+    <p>账号：<input name="username" required></p>
+    <p>密码：<input type="password" name="password" required></p>
+    <p><input type="submit" value="登录"></p>
+  </form>
+  <input name="from" type="hidden">
   <script>
-    const object1 = {
-      userid: 123,
-      username: 'jaime',
-      tel: '18812612345'
+    // 获取form元素
+    var form = document.getElementById('loginForm')
+    // 阻止默认提交行为
+    form.onsubmit = function (e) {
+      // e.preventDefault();
+      form.querySelector("input[type='submit']").disabled = true
+      var data = {}
+      var all = form.querySelectorAll("[name]")
+      for (var i = 0;i<all.length; i++) {
+        data[all[i].name] = all[i].value
+      }
+      // 获取form 外隐藏元素
+      var out = document.querySelector("input[type='hidden']")
+      data[out.name] = out.value
+      console.log(data)
+      form.querySelector("input[type='submit']").disabled = false
+      return false
     }
-    // encodeURI()和encodeURIComponent()都是对URL编码的函数
-    // encodeURI()主要用于整个 URI(例如，http://www.wrox.com/illegal value.htm)，
-    // encodeURIComponent()主要用于对 URI 中的某一段(例如前面 URI 中的 illegal value.htm)进行编码。 
-    // 它们的主要区别在于，encodeURI()不会对本身属于 URI 的特殊字符进行编码，例如冒号、正斜杠、 问号和井字号;
-    // encodeURIComponent()则会对它发现的任何非标准字符进行编码
-    // 这也正是可以 对整个 URI 使用 encodeURI()，而只能对附加在现有 URI 后面的字符串使用 encodeURIComponent() 的原因所在
-    // 一般来说，我们使用 encodeURIComponent()方法的时候要比使用 encodeURI()更多，因为在实践中更常见的是对查询字符串参数而不是对基础 URI 进行编码。
-
-    // 转查询字符串
-    const qr = new URLSearchParams(object1).toString()
-    const qr1 = Object.entries(object1).map(item => `${item[0]}=${encodeURIComponent(item[1])}`).join('&')
-    const qr2 = Object.entries(object1).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')
-    console.log(qr2)
-
-    // 获取url第一个?后的查询内容包括问号
-    var queryStr = decodeURIComponent(location.search)
-    console.log(queryStr)
-
-    // 上述内容转json
-    // arr.map(([k,v]) => ({[k]: v})) 记个笔记
-    const arr = queryStr.split("?")[1].split("&").map(item => item.split('='))
-    var obj1 = Object.fromEntries(arr)
-    const obj2 = arr.reduce((sum, [k,v]) => ({ ...sum, [k]:v }), {})
-    // 这里有问题，重复的key会被覆盖
-    console.log(obj2)
-
-    // 
-    var urlSearchParams = new URLSearchParams(location.search)
-    var urlObj = {}
-    for (let [key, value] of urlSearchParams.entries()) {
-      urlObj[key] = value
-    }
-    console.log(urlObj)
-
-    // 如果键有重复则值以数组呈现
-    // var res = {}
-    // arr.forEach(item => {
-    //   if (!res[item[0]]) {
-    //     res[item[0]] = item[1]
-    //   } else {
-    //     res[item[0]] = (res[item[0]]+','+item[1]).split(',')
-    //   }
-    // })
-    // console.log(res)
-
-    const obj5 = {}
-    const myParams = new URLSearchParams(location.search)
-    for (var p of myParams.keys()){
-      obj5[p]=myParams.getAll(p).length > 1 ? myParams.getAll(p) : myParams.get(p);
-    };
-    console.log(obj5)
+    
   </script>
 </body>
 </html>
