@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <form id="loginForm" action="/account/login" method="post">
-    <p>账号：<input name="username" required></p>
-    <p>密码：<input type="password" name="password" required></p>
-    <p><input type="submit" value="登录"></p>
-  </form>
-  <input name="from" type="hidden">
-  <script>
-    // 获取form元素
-    var form = document.getElementById('loginForm')
-    // 阻止默认提交行为
-    form.onsubmit = function (e) {
-      // e.preventDefault();
-      form.querySelector("input[type='submit']").disabled = true
-      var data = {}
-      var all = form.querySelectorAll("[name]")
-      for (var i = 0;i<all.length; i++) {
-        data[all[i].name] = all[i].value
-      }
-      // 获取form 外隐藏元素
-      var out = document.querySelector("input[type='hidden']")
-      data[out.name] = out.value
-      console.log(data)
-      form.querySelector("input[type='submit']").disabled = false
-      return false
-    }
-    
-  </script>
-</body>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <form id="loginForm" action="/account/login" method="post">
+      <p>账号：<input name="username" required></p>
+      <p>密码：<input type="password" name="password" required></p>
+      <p><input type="submit" value="登录"></p>
+    </form>
+    <input name="from" type="hidden" form="loginForm">
+    <script>
+      // 获取form元素
+      var form = document.getElementById('loginForm')
+      // var form = document.querySelector('#loginForm'); 
+      // var form = document.forms.loginForm; //方法3：表单原生方法，还可以写作：document.forms['loginForm']
+      // loginForm;   // 方法4：标签的 id 可以直接当变量来用 尽量不用，变量容易被覆盖
+      // 阻止默认提交行为
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // 推荐
+        var data = new FormData(form)
+        const iterators = data.entries()
+        var newdata = {};
+        for (const [key, value] of iterators) {
+          newdata[key] = value;
+        }
+        console.log(newdata)
+        console.log(data)
+      })
+
+    </script>
+  </body>
+
 </html>
