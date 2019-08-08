@@ -6,35 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+      * { padding: 0; margin: 0; }
+      ul,li { list-style: none; }
+      .menu-list { width: 160px; height: 90vh; border: 1px solid #ccc; border-top: none; border-bottom: none; padding: 20px 0; }
+      .menu-sub { display: none;  transition: .2s;}
+      .menu-item-icon { display: inline-block; transform: rotate(90deg); transition: .2s; }
+      .menu-item { display: flex; justify-content: space-between; padding: 0 10px; line-height: 40px; }
+      .menu-group input { position: absolute; display: block; width: 100%; height: 40px; top: 0; opacity: 0; z-index: 0;}
+      .menu-group {position: relative; }
+      .menu-group input:checked+.menu-item .menu-item-icon{ transform: rotate(270deg); }
+      .menu-group input:checked+.menu-item+.menu-sub { display: block; }
+      .menu-sub-item {line-height: 40px; padding-left: 30px; font-size: 14px; cursor:default; }
+      .menu-sub-item:hover { background: #EDF9FF; color: #33b2ee; }
+    </style>
   </head>
 
   <body>
-    <form id="loginForm" action="/account/login" method="post">
-      <p>账号：<input name="username" required></p>
-      <p>密码：<input type="password" name="password" required></p>
-      <p><input type="submit" value="登录"></p>
-    </form>
-    <input name="from" type="hidden" form="loginForm">
-    <script>
-      // 获取form元素
-      var form = document.getElementById('loginForm')
-      // var form = document.querySelector('#loginForm'); 
-      // var form = document.forms.loginForm; //方法3：表单原生方法，还可以写作：document.forms['loginForm']
-      // loginForm;   // 方法4：标签的 id 可以直接当变量来用 尽量不用，变量容易被覆盖
-      // 阻止默认提交行为
-      form.addEventListener('submit', function (event) {
-        event.preventDefault(); // 推荐
-        var data = new FormData(form)
-        const iterators = data.entries()
-        var newdata = {};
-        for (const [key, value] of iterators) {
-          newdata[key] = value;
-        }
-        console.log(newdata)
-        console.log(data)
-      })
-
-    </script>
+    <div class="menu-list">
+      <div class="menu-group">
+        <input type="checkbox">
+        <div class="menu-item">
+          <b>布局</b>
+          <span class="menu-item-icon">></span>
+        </div>
+        <ul class="menu-sub">
+          <li class="menu-sub-item">Flex布局</li>
+          <li class="menu-sub-item">Grid布局</li>
+          <li class="menu-sub-item">Shapes布局</li>
+          <li class="menu-sub-item">Columns布局</li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <input type="checkbox">
+        <div class="menu-item">
+          <b>组件</b>
+          <span class="menu-item-icon">></span>
+        </div>
+        <ul class="menu-sub">
+          <li class="menu-sub-item">按钮</li>
+          <li class="menu-sub-item">输入框</li>
+          <li class="menu-sub-item">下拉列表</li>
+          <li class="menu-sub-item">单复选框</li>
+        </ul>
+      </div>
+    </div>
   </body>
 
 </html>
