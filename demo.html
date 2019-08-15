@@ -7,54 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-      * { padding: 0; margin: 0; }
-      ul,li { list-style: none; }
-      .menu-list { width: 160px; height: 90vh; border: 1px solid #ccc; border-top: none; border-bottom: none; padding: 20px 0; }
-      /* .menu-sub { display: none;  transition: .2s;} */
-      .menu-item-icon { display: inline-block; transform: rotate(90deg); transition: .2s; }
-      .menu-item { display: flex; justify-content: space-between; padding: 0 10px; line-height: 40px; }
-      /* .menu-group input { position: absolute; display: block; width: 100%; height: 40px; top: 0; opacity: 0; z-index: 0;} */
-      .menu-group {position: relative; }
-      .menu-group[open] .menu-item-icon{ transform: rotate(270deg); }
-      /* .menu-group input:checked+.menu-item+.menu-sub { display: block; } */
-      .menu-sub-item {line-height: 40px; padding-left: 30px; font-size: 14px; cursor:default; }
-      .menu-sub-item:hover { background: #EDF9FF; color: #33b2ee; }
-      ::-webkit-details-marker {display: none;}
-      ::-moz-list-bullet {font-size: 0;}
-      :focus:not(:focus-visible) { outline: 0;}
-      summary {outline: 0;}
+     
     </style>
   </head>
 
   <body>
-    <div class="menu-list">
-      <details class="menu-group" open>
-        <!-- <input type="checkbox"> -->
-        <summary class="menu-item">
-          <b>布局</b>
-          <span class="menu-item-icon">></span>
-        </summary>
-        <ul class="menu-sub">
-          <li class="menu-sub-item">Flex布局</li>
-          <li class="menu-sub-item">Grid布局</li>
-          <li class="menu-sub-item">Shapes布局</li>
-          <li class="menu-sub-item">Columns布局</li>
-        </ul>
-      </details>
-      <details class="menu-group">
-        <!-- <input type="checkbox"> -->
-        <summary class="menu-item">
-          <b>组件</b>
-          <span class="menu-item-icon">></span>
-        </summary>
-        <ul class="menu-sub">
-          <li class="menu-sub-item">按钮</li>
-          <li class="menu-sub-item">输入框</li>
-          <li class="menu-sub-item">下拉列表</li>
-          <li class="menu-sub-item">单复选框</li>
-        </ul>
-      </details>
-    </div>
+    <input type="file" id="file" multiple="multiple" onchange="fileChange()" />
+    <script>
+      function fileChange() {
+
+          var files = document.getElementById("file").files
+          var filterFiles = [...files].filter(file => file.size < 1024*1024*1)
+          console.log(filterFiles)
+          // var result = document.getElementById("result");
+
+          // for (i = 0; i < file.length; i++) {
+          //   var reader = new FileReader();
+          //   reader.readAsDataURL(file[i]);
+          //   reader.onload = function (e) {
+          //     //多图预览
+          //     result.innerHTML = result.innerHTML + '<img src="' + this.result + '" alt="" />';
+          //   }
+
+          // }
+
+        }  
+    </script>
   </body>
 
 </html>
