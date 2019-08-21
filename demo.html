@@ -12,26 +12,37 @@
   </head>
 
   <body>
-    <input type="file" id="file" multiple="multiple" onchange="fileChange()" />
+    <textarea></textarea>
+    <textarea></textarea>
+    <button onclick="add()">新增文本域</button>
     <script>
-      function fileChange() {
+      var text = document.getElementsByTagName('textarea')[0]
+      text.rows = 5
+      var height = window.getComputedStyle(text).height
+      setTextStyle(text)
+      
+      
+      document.body.addEventListener('DOMNodeInserted', (e) => {
+        const dom = e.target
+        this.setTextStyle(dom)
+      })
 
-          var files = document.getElementById("file").files
-          var filterFiles = [...files].filter(file => file.size < 1024*1024*1)
-          console.log(filterFiles)
-          // var result = document.getElementById("result");
+      function add () {
+        var newText = document.createElement('textarea')
+        // newText.style.lineHeight = 1.5
+        document.body.appendChild(newText)
+      }
 
-          // for (i = 0; i < file.length; i++) {
-          //   var reader = new FileReader();
-          //   reader.readAsDataURL(file[i]);
-          //   reader.onload = function (e) {
-          //     //多图预览
-          //     result.innerHTML = result.innerHTML + '<img src="' + this.result + '" alt="" />';
-          //   }
-
-          // }
-
-        }  
+      function setTextStyle (dom) {
+        if (dom.nodeName.toLowerCase() === 'textarea') {
+          var originalLH = parseFloat(window.getComputedStyle(dom).lineHeight)
+          if (isNaN(originalLH)) {
+            dom.style.lineHeight = 1.5
+            originalLH = parseFloat(window.getComputedStyle(dom).lineHeight)
+          }
+          dom.style.height = dom.rows * originalLH + 'px'
+        }
+      }
     </script>
   </body>
 
