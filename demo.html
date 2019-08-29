@@ -7,43 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-     
+      ul, li { list-style: none; padding: 0; margin: 0; }
+      a { color: #0077CC; text-decoration: none; }
+      .icon { width: 16px; height: 16px; margin-right: 7px; background-size: 100%; display: inline-block; }
+      .icon-comment-alt { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E %3Cpath fill='%2346A2D9' d='M256 32C114.6 32 0 125.1 0 240c0 47.6 19.9 91.2 52.9 126.3C38 405.7 7 439.1 6.5 439.5c-6.6 7-8.4 17.2-4.6 26S14.4 480 24 480c61.5 0 110-25.7 139.1-46.3C192 442.8 223.2 448 256 448c141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z'%3E%3C/path%3E %3C/svg%3E") no-repeat center; }
+      .icon-stack-overflow { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E %3Cpath fill='%2352575C' d='M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z'%3E%3C/path%3E %3C/svg%3E") no-repeat center; }
+      .news-box { width: 300px; background: #FFF8DC; border-radius: 2px; border: 1px solid #E6DFC6; box-shadow: 3px 3px 10px #eee; }
+      .news-header { padding: 0 16px; font-size: 12px; line-height: 40px; font-weight: bold; color: #737063; background: #F7F1D5; }
+      .news-item { padding: 11px 16px 13px; font-size: 13px; border-top: 1px solid #E6DFC6; display: flex; }
+      .news-item a { flex: 1; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
     </style>
   </head>
 
   <body>
-    <textarea></textarea>
-    <textarea></textarea>
-    <button onclick="add()">新增文本域</button>
-    <script>
-      var text = document.getElementsByTagName('textarea')[0]
-      text.rows = 5
-      var height = window.getComputedStyle(text).height
-      setTextStyle(text)
-      
-      
-      document.body.addEventListener('DOMNodeInserted', (e) => {
-        const dom = e.target
-        this.setTextStyle(dom)
-      })
-
-      function add () {
-        var newText = document.createElement('textarea')
-        // newText.style.lineHeight = 1.5
-        document.body.appendChild(newText)
-      }
-
-      function setTextStyle (dom) {
-        if (dom.nodeName.toLowerCase() === 'textarea') {
-          var originalLH = parseFloat(window.getComputedStyle(dom).lineHeight)
-          if (isNaN(originalLH)) {
-            dom.style.lineHeight = 1.5
-            originalLH = parseFloat(window.getComputedStyle(dom).lineHeight)
-          }
-          dom.style.height = dom.rows * originalLH + 'px'
-        }
-      }
-    </script>
+    <div class="news-box">
+      <div class="news-header">标题</div>
+      <ul class="news-list">
+        <li class="news-item">
+          <i class="icon icon-comment-alt"></i>
+          <a href="#">恭喜我们29个最老的测试版网站-他们现在不再是测试版了！</a>
+        </li>
+        <li class="news-item">
+          <i class="icon icon-comment-alt"></i>
+          <a href="#">《独角兽动物园》35；7:Nicolas访谈</a>
+        </li>
+        <li class="news-item">
+          <i class="icon icon-stack-overflow"></i>
+          <a href="#">减少需要重新审查的封闭问题数量的建议</a>
+        </li>
+        <li class="news-item">
+          <i class="icon icon-stack-overflow"></i>
+          <a href="#">实验：在接下来的30天内（直到2019-09-07），以3票为基准关闭和重新打开提出的问题</a>
+        </li>
+      </ul>
+    </div>
   </body>
 
 </html>
