@@ -11,36 +11,19 @@
   <body>
 
     <script>
-      var bankCode = '6222081812002934027';
-      console.log(bankCode.trim().replace(/(\d{4})(?=\d)/g, "$1 "));
+      const dialog = document.createElement('dialog')
+      document.body.append(dialog)
 
-      var numberCode = '5702375';
-      console.log(Number(numberCode).toLocaleString())
-      console.log(Number(numberCode).toLocaleString('en-US'))
-
-      var filesize = 2837475;
-      var res = formatSize(filesize)
-      console.log(res)
+      // dialog.open = 'open'
       
-      function formatSize (size = Number(size)) {
-        if (isNaN(size)) {
-          return '请使用合法数值'
-        }
-        const unit = 1024
-        var res = ''
-        switch (true) {
-          case size < Math.pow(unit, 2): 
-            res = (size / unit).toFixed(2) + "K"
-            break
-          case size < Math.pow(unit, 3):
-            res = (size / Math.pow(unit, 2)).toFixed(2) + "M";
-            break
-          case size < Math.pow(unit, 4):
-            res = (size / Math.pow(unit, 3)).toFixed(2) + "G";
-        }
-        return res
+      const btn = document.createElement('button')
+      btn.innerText = 'Close'
+      dialog.append(btn)
+      btn.onclick = function () {
+        dialog.close()
       }
 
+      dialog.showModal()
     </script>
   </body>
 
