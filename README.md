@@ -12,5 +12,5 @@
 8. [DOM基础测试36 - textarea高度](https://github.com/JaimeCheng/zxx-quiz-summary/issues/8) （[答疑录播](https://www.bilibili.com/video/av65187484)）
 9. [CSS基础测试11 - 列表布局](https://github.com/JaimeCheng/zxx-quiz-summary/issues/9) （[答疑录播](https://www.bilibili.com/video/av66195390)）
 10. [JS基础测试37 - 字符串处理](https://github.com/JaimeCheng/zxx-quiz-summary/issues/10) （[答疑录播](https://www.bilibili.com/video/av66886926)）
-11. [DOM基础测试37 - Dialog元素](https://github.com/JaimeCheng/zxx-quiz-summary/issues/11)
-12. [CSS基础测试12 - 徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/12)
+11. [DOM基础测试37 - Dialog元素](https://github.com/JaimeCheng/zxx-quiz-summary/issues/11) （[答疑录播](https://www.bilibili.com/video/av68476064)）
+12. [CSS基础测试12 - 徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/12) （[答疑录播](https://www.bilibili.com/video/av68476064)）
