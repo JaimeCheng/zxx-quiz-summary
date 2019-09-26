@@ -6,90 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-      .cover {
-        position: relative;
-        display: inline-block;
-      }
-      .cover img {
-        width: 120px;
-        height: 160px;
-      }
-      .tag {
-        color: #fff;
-        font-size: 12px;
-        position: absolute;
-      }
-      .tag1 {
-        padding: 4px 6px;
-        top: 0;
-        left: 0;
-        line-height: 1;
-        background: #cd0000;
-      }
-      .tag2 {
-        z-index: 0;
-        padding: 1px 5px;
-      }
-      .tag2::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: -0;
-        border: 15px solid transparent;
-        border-top: 15px solid #cd0000;
-        border-left: 15px solid #cd0000;
-      }
-      .tag3 {
-        padding: 0 6px;
-        line-height: 22px;
-        z-index: 0;
-      }
-      .tag3::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        width: 100%;
-        height: 0;
-        border-width: 0px 8px 22px 0px;
-        border-style: none solid solid;
-        border-color: transparent transparent #cd0000;
-        transform: scale(1, -1)
-      }
-      .tag4 {
-        height: 25px;
-        line-height: 22px;
-        padding: 0px 10px 0 5px;
-        background: #cd0000;
-        border-radius: 0 0 100% 0;
-      }
-    </style>
   </head>
 
   <body>
-    <div class="cover">
-      <span class="tag tag1">No.1</span>
-      <img src="https://bookcover.yuewen.com/qdbimg/349573/1012237441/180">
-    </div>
-    <div class="cover">
-      <span class="tag tag2">1</span>
-      <img src="https://bookcover.yuewen.com/qdbimg/349573/1012237441/180">
-    </div>
-    <div class="cover">
-      <span class="tag tag3">火热连载</span>
-      <img src="https://bookcover.yuewen.com/qdbimg/349573/1012237441/180">
-    </div>
-    <div class="cover">
-      <span class="tag tag4">1</span>
-      <img src="https://bookcover.yuewen.com/qdbimg/349573/1012237441/180">
-    </div>
-    <div class="cover">
-      <span class="tag tag4">100</span>
-      <img src="https://bookcover.yuewen.com/qdbimg/349573/1012237441/180">
-    </div>
+    <script>
+      var str = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2z" fill="#0067E6"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7 6a1 1 0 0 1 1-1h9l5 5v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V6z" fill="#FEAEA5"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17 5l5 5h-4a1 1 0 0 1-1-1V5z" fill="#0067E6"/></svg>'
+      str = str.replace(/fill="(?!none)[^"]+"/g, '')
+      console.log(str)
+      console.log(window.btoa(str))
+    </script>
   </body>
 
 </html>
