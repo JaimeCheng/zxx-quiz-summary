@@ -9,11 +9,29 @@
   </head>
 
   <body>
+    <input type="button" id="removeDisabled" value="全部都可用">
+    <input type="radio" value="1" name="bookName" required>沐神记
+    <input type="radio" value="2" name="bookName" disabled>放开那条龙
+    <input type="radio" value="3" name="bookName">重生之扫地僧
+    <fieldset disabled>
+      <input type="radio" value="ba1" name="bookAuthor">宅猪
+      <input type="radio" value="ba2" name="bookAuthor" checked>西红柿
+      <input type="radio" value="ba3" name="bookAuthor">莫默
+    </filedset>
     <script>
-      var str = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2z" fill="#0067E6"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7 6a1 1 0 0 1 1-1h9l5 5v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V6z" fill="#FEAEA5"/><path fill-rule="evenodd" clip-rule="evenodd" d="M17 5l5 5h-4a1 1 0 0 1-1-1V5z" fill="#0067E6"/></svg>'
-      str = str.replace(/fill="(?!none)[^"]+"/g, '')
-      console.log(str)
-      console.log(window.btoa(str))
+      const res1 = document.querySelectorAll('input[type="radio"]:required')
+      const res2 = document.querySelectorAll('input[type="radio"]:disabled')
+      const res3 = document.querySelectorAll('input[type="radio"]:checked')
+      const btn = document.getElementById('removeDisabled')
+      btn.onclick = function () {
+        [...res2].forEach(el => {
+          if (!el.getAttribute('disabled')) {
+            document.querySelector('fieldset').removeAttribute('disabled')
+          }
+          el.removeAttribute('disabled')
+        })
+      }
+      console.log(res2)
     </script>
   </body>
 
