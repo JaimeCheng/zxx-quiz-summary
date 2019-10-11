@@ -15,3 +15,4 @@
 11. [DOM基础测试37 - Dialog元素](https://github.com/JaimeCheng/zxx-quiz-summary/issues/11) （[答疑录播](https://www.bilibili.com/video/av68476064)）
 12. [CSS基础测试12 - 徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/12) （[答疑录播](https://www.bilibili.com/video/av68476064)）
 13. [JS基础测试38 - 正则匹配](https://github.com/JaimeCheng/zxx-quiz-summary/issues/13) （[答疑录播](https://www.bilibili.com/video/av69279856)）
+14. [DOM基础测试38 - 表单验证](https://github.com/JaimeCheng/zxx-quiz-summary/issues/14)
