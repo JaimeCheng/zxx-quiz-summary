@@ -7,37 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-      input[type='radio']:invalid {
-        outline: 3px dashed red;
-      }
+
     </style>
   </head>
 
   <body>
-    <input type="button" id="removeDisabled" value="全部都可用">
-    <input type="radio" value="1" name="bookName" required>沐神记
-    <input type="radio" value="2" name="bookName" disabled>放开那条龙
-    <input type="radio" value="3" name="bookName">重生之扫地僧
-    <fieldset disabled>
-      <input type="radio" value="ba1" name="bookAuthor">宅猪
-      <input type="radio" value="ba2" name="bookAuthor" checked>西红柿
-      <input type="radio" value="ba3" name="bookAuthor">莫默
-    </filedset>
-    <script>
-      const res1 = document.querySelectorAll('input[type="radio"]:required')
-      const res2 = document.querySelectorAll('input[type="radio"]:disabled')
-      const res3 = document.querySelectorAll('input[type="radio"]:checked')
-      const btn = document.getElementById('removeDisabled')
-      btn.onclick = function () {
-        [...res2].forEach(el => {
-          if (!el.getAttribute('disabled')) {
-            document.querySelector('fieldset').removeAttribute('disabled')
-          }
-          el.removeAttribute('disabled')
-        })
-      }
-      console.log(res2)
-    </script>
+    <form class="js-social-form">
+      <details class="select-menu">
+        <summary class="select-menu-button"aria-haspopup="menu" role="button"> 
+          <span>
+            <svg class="octicon octicon-eye" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z">
+              </path>
+            </svg>
+            Unwatch
+          </span>
+        </summary>
+      </details>
+      <a class="social-count js-social-count" href="#">64</a>
+    </form>
   </body>
 
 </html>
