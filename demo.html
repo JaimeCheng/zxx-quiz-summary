@@ -46,8 +46,8 @@
       }
       function colorRange (start, end) {
         start = parseInt(colorPad(start).split('#')[1], 16)
-        end = parseInt(colorPad(end).split('#')[1], 16)+1
-        const random = Math.floor(Math.random() * (end - start) + start)
+        end = parseInt(colorPad(end).split('#')[1], 16)
+        const random = Math.floor(Math.random() * (end + 1 - start) + start)
         const res = random.toString(16)
         return '#' + '0'.repeat(6 - res.length) + res
       }
