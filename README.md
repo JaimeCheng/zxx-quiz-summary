@@ -16,5 +16,5 @@
 12. [CSS基础测试12 - 徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/12) （[答疑录播](https://www.bilibili.com/video/av68476064)）
 13. [JS基础测试38 - 正则匹配](https://github.com/JaimeCheng/zxx-quiz-summary/issues/13) （[答疑录播](https://www.bilibili.com/video/av69279856)）
 14. [DOM基础测试38 - 表单验证](https://github.com/JaimeCheng/zxx-quiz-summary/issues/14) （[答疑录播](https://www.bilibili.com/video/av71132928)）
-15. [CSS基础测试13 - Github徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/15) （[]()）
-16. [JS基础测试39 - HEX色值](https://github.com/JaimeCheng/zxx-quiz-summary/issues/16) （[]()）
+15. [CSS基础测试13 - Github徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/15) （[答疑录播](https://www.bilibili.com/video/av73445027)）
+16. [JS基础测试39 - HEX色值](https://github.com/JaimeCheng/zxx-quiz-summary/issues/16) （[答疑录播](https://www.bilibili.com/video/av73445271)）
