@@ -6,53 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+.img-list {
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.img-item {
+  width: 83px;
+  height: 83px;
+  display: block;
+  margin-bottom: 5px;
+  object-fit: cover;
+  /* cursor: move; */
+}
+.img-preview {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+dialog {
+  text-align: center;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, .4);
+}
+    </style>
   </head>
 
   <body>
+<div class="img-list">
+  <img class="img-item" draggable="true" src="https://bookcover.yuewen.com/qdbimg/349573/1016562761" alt="">
+  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016594554" alt="">
+  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016706397" alt="">
+  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016673054" alt="">
+  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016446189" alt="">
+  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016232348" alt="">
+</div>
+
+<dialog id="img-box">
+  <img class="img-preview" src="" alt="">
+</dialog>
+
     <script>
-      function colorPad (str) {
-        const reg = /^#?[A-Fa-f0-9]{1,6}$/g
-        if (reg.test(str)) {
-          str = str.replace('#', '')
-          if (str.length === 1) {
-            return '#' + str.repeat(6).toLowerCase()
-          } else if (str.length === 2) {
-            return '#' + str.repeat(3).toLowerCase()
-          } else if (str.length === 3) {
-            return '#' + str[0].repeat(2) + str[1].repeat(2) + str[2].repeat(2)
-          } else if (str.length === 6) {
-            return '#' + str.toLowerCase()
-          } else {
-            return '#000000'
-          } 
-        } else {
-          return '#000000'
+      const dialog = document.getElementById('img-box')
+      const imgItems = document.querySelectorAll('.img-item')
+      const imgPreview = document.querySelector('.img-preview')
+      var dragEl = null 
+      imgItems.forEach(item => {
+        const src = item.getAttribute('src')
+        item.onclick = function () {
+          imgPreview.setAttribute('src', src)
+          dialog.showModal()
         }
+        item.addEventListener('dragstart', handleStart, false)
+        item.addEventListener('dragover', handleOver, false)
+        item.addEventListener('drop', handleDrop, false)
+      })
+
+      function handleStart (e) {
+        dragEl = this
+        e.dataTransfer.effectAllowed = 'move'
+        e.dataTransfer.setData('Text', e.target.src)
       }
-      console.log(
-        '1. \n',
-        '0 => ' + colorPad('A') + '\n',
-        '#0 => ' + colorPad('#0') + '\n',
-        'AF => ' + colorPad('AF') + '\n',
-        '#fc0 => ' + colorPad('#fc0') + '\n',
-        '#936c => ' + colorPad('#936c') + '\n',
-        '#936ce => ' + colorPad('#936ce') + '\n',
-        '#936cef => ' + colorPad('#936cef') + '\n',
-        '#936cefd => ' + colorPad('#936cefd') + '\n',
-        '#DEFGHI => ' + colorPad('#DEFGHI')
-      )
-      var getRandomColor = function () {
-        return '#' + (Math.random() * 0xffffff << 0).toString(16);
+      function handleOver (e) {
+        if (e.preventDefault) {
+          e.preventDefault()
+        }
+        e.dataTransfer.dropEffect = 'move'
+        return false
       }
-      function colorRange (start, end) {
-        start = parseInt(colorPad(start).split('#')[1], 16)
-        end = parseInt(colorPad(end).split('#')[1], 16)
-        const random = Math.floor(Math.random() * (end + 1 - start) + start)
-        const res = random.toString(16)
-        return '#' + '0'.repeat(6 - res.length) + res
+      function handleDrop(e) {
+        if (e.stopPropagation) {
+          e.stopPropagation()
+        }
+        if (dragEl != this) {
+          dragEl.src = this.src
+          this.src = e.dataTransfer.getData('Text')
+        }
+        return false
       }
-      console.log(colorRange('#fc0', '#ffcc02'))
-      console.log(colorRange('#0', '#000002'))
+
+      dialog.onclick = function () {
+        dialog.close()
+      }
     </script>
   </body>
 

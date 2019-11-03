@@ -18,3 +18,4 @@
 14. [DOM基础测试38 - 表单验证](https://github.com/JaimeCheng/zxx-quiz-summary/issues/14) （[答疑录播](https://www.bilibili.com/video/av71132928)）
 15. [CSS基础测试13 - Github徽章](https://github.com/JaimeCheng/zxx-quiz-summary/issues/15) （[答疑录播](https://www.bilibili.com/video/av73445027)）
 16. [JS基础测试39 - HEX色值](https://github.com/JaimeCheng/zxx-quiz-summary/issues/16) （[答疑录播](https://www.bilibili.com/video/av73445271)）
+17. [DOM基础测试 - 拖拽排序](https://github.com/JaimeCheng/zxx-quiz-summary/issues/17) （[答疑录播](bilibili.com/video/av74229607)）
