@@ -7,92 +7,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-.img-list {
-  width: 260px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.img-item {
-  width: 83px;
-  height: 83px;
-  display: block;
-  margin-bottom: 5px;
-  object-fit: cover;
-  /* cursor: move; */
-}
-.img-preview {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 10px;
-}
-dialog {
-  text-align: center;
-}
-dialog::backdrop {
-  background: rgba(0, 0, 0, .4);
-}
+      .step-item {
+        height: 40px;
+        font-size: 14px;
+        padding: 10px 25px;
+        margin: 0 0 5px -15px;
+        display: inline-block;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: #009fe9;
+        background: #edf9ff;
+        clip-path: polygon(87% 0, 100% 50%, 87% 100%, 0 100%, 13% 50%, 0 0);
+      }
+      .step-item:first-of-type {
+        color: #009fe9;
+        clip-path: polygon(0 0, 87% 0, 100% 50%, 87% 100%, 0% 100%);
+      }
+      .step-item.step-curr {
+        color: #fff;
+        background: #009fe9;
+      }
+      .step-item.step-curr~.step-item {
+        color: #8c8c8c;
+        background-color: #EBEDF0;
+      }
     </style>
   </head>
 
   <body>
-<div class="img-list">
-  <img class="img-item" draggable="true" src="https://bookcover.yuewen.com/qdbimg/349573/1016562761" alt="">
-  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016594554" alt="">
-  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016706397" alt="">
-  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016673054" alt="">
-  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016446189" alt="">
-  <img class="img-item" draggable="true" src="http://bookcover.yuewen.com/qdbimg/349573/1016232348" alt="">
+<div class="step-bar">
+  <a class="step-item">1-规则说明</a>
+  <a class="step-item">2-参与活动</a>
+  <a class="step-item step-curr">3-参与抽奖</a>
+  <a class="step-item">4-奖品发放</a>
+  <a class="step-item">5-查看结果</a>
 </div>
-
-<dialog id="img-box">
-  <img class="img-preview" src="" alt="">
-</dialog>
-
-    <script>
-      const dialog = document.getElementById('img-box')
-      const imgItems = document.querySelectorAll('.img-item')
-      const imgPreview = document.querySelector('.img-preview')
-      var dragEl = null 
-      imgItems.forEach(item => {
-        const src = item.getAttribute('src')
-        item.onclick = function () {
-          imgPreview.setAttribute('src', src)
-          dialog.showModal()
-        }
-        item.addEventListener('dragstart', handleStart, false)
-        item.addEventListener('dragover', handleOver, false)
-        item.addEventListener('drop', handleDrop, false)
-      })
-
-      function handleStart (e) {
-        dragEl = this
-        e.dataTransfer.effectAllowed = 'move'
-        e.dataTransfer.setData('Text', e.target.src)
-      }
-      function handleOver (e) {
-        if (e.preventDefault) {
-          e.preventDefault()
-        }
-        e.dataTransfer.dropEffect = 'move'
-        return false
-      }
-      function handleDrop(e) {
-        if (e.stopPropagation) {
-          e.stopPropagation()
-        }
-        if (dragEl != this) {
-          dragEl.src = this.src
-          this.src = e.dataTransfer.getData('Text')
-        }
-        return false
-      }
-
-      dialog.onclick = function () {
-        dialog.close()
-      }
-    </script>
   </body>
 
 </html>
