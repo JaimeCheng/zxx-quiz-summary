@@ -6,118 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <style>
-    /* .step-item {
-        height: 40px;
-        font-size: 14px;
-        padding: 10px 25px;
-        margin: 0 0 5px -17px;
-        display: inline-block;
-        box-sizing: border-box;
-        text-decoration: none;
-        color: #009fe9;
-        background: #edf9ff;
-        clip-path: polygon(87% 0, 100% 50%, 87% 100%, 0 100%, 13% 50%, 0 0);
-      }
-      .step-item:first-of-type {
-        color: #009fe9;
-        clip-path: polygon(0 0, 87% 0, 100% 50%, 87% 100%, 0% 100%);
-      }
-      .step-item.step-curr {
-        color: #fff;
-        background: #009fe9;
-      }
-      .step-item.step-curr~.step-item {
-        color: #8c8c8c;
-        background-color: #EBEDF0;
-      } */
-    /* .steps {
-      margin: 40px;
-      padding: 0;
-      overflow: hidden;
-    } */
-
-.steps a {
-  color: #009fe9;
-  font-size: 14px;
-  line-height: 40px;
-  text-decoration: none;
-  padding-left: 8px;
-}
-
-.steps li {
-  float: left;
-  margin-left: 0;
-  height: 40px;
-  padding: 0 2px 0 20px;
-  list-style-type: none;
-  border-right: 3px solid white;
-  position: relative;
-  background-color: #edf9ff;
-}
-
-.steps li:first-child {
-  padding-left: 15px;
-}
-
-.steps li:nth-child(n+2)::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-left: 20px solid white;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  content: " ";
-}
-
-.steps li::after {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  right: -20px;
-  display: block;
-  border-left: 20px solid #edf9ff;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  content: "";
-  border-left-color: #edf9ff;
-}
-
-/* Current */
-.steps li.current {
-  background-color: #009fe9;
-}
-
-.steps li.current a {
-  color: #fff;
-}
-
-.steps li.current::after {
-  border-left-color: #009fe9;
-}
-
-/* Following */
-.steps li.current~li {
-  background-color: #EBEBF0;
-}
-.steps li.current~li a {
-  color: #8c8c8c;
-}
-.steps li.current~li::after {
-  border-left-color: #EBEBF0;
-}
-  </style>
 </head>
 
 <body>
-<ul class="steps">
-  <li><a href="#">1-规则说明</a></li>
-  <li><a href="#">2-参与活动</a></li>
-  <li class="current"><a href="#">3-参与抽奖</a></li>
-  <li><a href="#">4-奖品发放</a></li>
-  <li><a href="#">5-查看结果</a></li>
-</ul>
+
+  <script>
+function toCamelCase (str) {
+  return str.replace(/\-(\w)/g, function (all, letter) {
+    return letter.toUpperCase();
+  });
+}
+function toDashJoin (str) {
+  return str.replace(/([A-Z])/g, "-$1").toLowerCase();
+}
+function toCapitalize (str) {
+  return (' ' + str).replace(/\ (\w)/g, function (all, letter) {
+    return ' ' + letter.toUpperCase();
+  }).substr(1);
+}
+function toBetterUrl (str) {
+  return str.toLowerCase().replace(/\s+/g, "-")
+}
+console.log(toCamelCase('abc-bcd-dfd'))
+console.log(toDashJoin('abcDfgEdf'))
+console.log(toCapitalize('i i Like css!'))
+console.log(toBetterUrl('CSS  value   type'))
+  </script>
 </body>
 
 </html>

@@ -20,3 +20,4 @@
 16. [JS基础测试39 - HEX色值](https://github.com/JaimeCheng/zxx-quiz-summary/issues/16) （[答疑录播](https://www.bilibili.com/video/av73445271)）
 17. [DOM基础测试39 - 拖拽排序](https://github.com/JaimeCheng/zxx-quiz-summary/issues/17) （[答疑录播](https://www.bilibili.com/video/av74229607)）
 18. [CSS基础测试14 - 面包屑导航](https://github.com/JaimeCheng/zxx-quiz-summary/issues/18) （[答疑录播](https://www.bilibili.com/video/av75042558)）
+19. [JS基础测试40 - 字符串转换](https://github.com/JaimeCheng/zxx-quiz-summary/issues/19)
