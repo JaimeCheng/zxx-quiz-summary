@@ -6,31 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    li.selected {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
-
+  <input type="text" id="input">
+  <ul id="list">
+    <li>列表1</li>
+    <li>列表2</li>
+    <li>列表3</li>
+  </ul>
   <script>
-function toCamelCase (str) {
-  return str.replace(/\-(\w)/g, function (all, letter) {
-    return letter.toUpperCase();
-  });
-}
-function toDashJoin (str) {
-  return str.replace(/([A-Z])/g, "-$1").toLowerCase();
-}
-function toCapitalize (str) {
-  return (' ' + str).replace(/\ (\w)/g, function (all, letter) {
-    return ' ' + letter.toUpperCase();
-  }).substr(1);
-}
-function toBetterUrl (str) {
-  return str.toLowerCase().replace(/\s+/g, "-")
-}
-console.log(toCamelCase('abc-bcd-dfd'))
-console.log(toDashJoin('abcDfgEdf'))
-console.log(toCapitalize('i i Like css!'))
-console.log(toBetterUrl('CSS  value   type'))
+var input = document.querySelector('#input')
+var ul = document.querySelector('#list')
+var list = ul.querySelectorAll('li')
+list.forEach(li => {
+  li.addEventListener('click', () => {
+    input.value = li.innerText
+    var selected = ul.querySelector('.selected')
+    selected && selected.classList.remove('selected')
+    li.classList.add('selected')
+  })
+})
+document.addEventListener('keydown', e => {
+  if (e.keyCode !== 38 && e.keyCode !== 40) {
+    return
+  }
+  var selected = ul.querySelector('.selected')
+  if (e.keyCode === 38) {
+    if (!selected || selected === ul.firstElementChild) {
+      selected && selected.classList.remove('selected')
+      ul.lastElementChild.classList.add('selected')
+      input.value = ul.lastElementChild.innerText
+    } else {
+      selected && selected.classList.remove('selected')
+      selected.previousElementSibling.classList.add('selected')
+      input.value = selected.previousElementSibling.innerText
+    }
+  }
+  if (e.keyCode === 40) {
+    if (!selected || selected === ul.lastElementChild) {
+      selected && selected.classList.remove('selected')
+      ul.firstElementChild.classList.add('selected')
+      input.value = ul.firstElementChild.innerText
+    } else {
+      selected && selected.classList.remove('selected')
+      selected.nextElementSibling.classList.add('selected')
+      input.value = selected.nextElementSibling.innerText
+    }
+  }
+})
   </script>
 </body>
 
