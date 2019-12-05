@@ -21,5 +21,5 @@
 17. [DOM基础测试39 - 拖拽排序](https://github.com/JaimeCheng/zxx-quiz-summary/issues/17) （[答疑录播](https://www.bilibili.com/video/av74229607)）
 18. [CSS基础测试14 - 面包屑导航](https://github.com/JaimeCheng/zxx-quiz-summary/issues/18) （[答疑录播](https://www.bilibili.com/video/av75042558)）
 19. [JS基础测试40 - 字符串转换](https://github.com/JaimeCheng/zxx-quiz-summary/issues/19) （[答疑录播](https://www.bilibili.com/video/av75837322)）
-20. [DOM基础测试40 - 键盘事件](https://github.com/JaimeCheng/zxx-quiz-summary/issues/20)
-20. [CSS基础测试15 - 网格状布局](https://github.com/JaimeCheng/zxx-quiz-summary/issues/21)
+20. [DOM基础测试40 - 键盘事件](https://github.com/JaimeCheng/zxx-quiz-summary/issues/20) （[答疑录播](https://www.bilibili.com/video/av77516436)）
+20. [CSS基础测试15 - 网格状布局](https://github.com/JaimeCheng/zxx-quiz-summary/issues/21) （[答疑录播](https://www.bilibili.com/video/av77516776)）
