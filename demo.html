@@ -12,30 +12,46 @@
 </head>
 
 <body>
+    <p>132-0803-3621（短横线需要过滤）</p>
+    <p>132 0803 3621（短横线需要过滤）</p>
+    <p>132-0803-3621@qq.com（短横线不能过滤）</p>
+    <form id="form">
+      <input value="132 0803 3621" name="tel" id="input" placeholder="邮箱或密码" />
+    </form>
   <script>
-    var strTel1 = ' 13212380222 '
-    var strTel2 = '１３２１２３８０２２２ '
-    var strTel3 = '+8613212380222'
-    var strTel4 = ' 132 123-80222 '
-    var strTel5 = '13212380222 '
-    // var strTel = strTel1.trim()
-    // var strTel = toCDB(strTel2)
-    const patrn =/^1\d{10}$/g
-    // var strTel = strTel3.replace(/^\+86/, '')
-    var strTel = strTel4.replace(/[^0-9]+/g, '').length === 11 ? strTel4.replace(/[^0-9]+/g, '') : strTel4
-    console.log(strTel)
-function toCDB(str) {
-  var tmp = '';
-  for (var i = 0; i < str.length; i++) {
-    if (str.charCodeAt(i) > 65248 && str.charCodeAt(i) < 65375) {
-      tmp += String.fromCharCode(str.charCodeAt(i) - 65248)
-    }
-    else {
-      tmp += String.fromCharCode(str.charCodeAt(i))
-    }
-  }
-  return tmp
+
+// 1
+function telTrim (str) {
+  return str.match(/[0-9]/g).length === 11 && str.replace(/[-\s]/g, '').length === 11 && str.replace(/[-\s]/g, '') || str
 }
+console.log(telTrim('132-123-23233@qq.com'))
+console.log(telTrim('132-123-23233'))
+console.log(telTrim('132-123 23233'))
+
+// 2
+const myForm = document.getElementById('form')
+const myInput = document.getElementById('input')
+console.log(myForm, myInput)
+
+// 3
+myInput.addEventListener('drop', e => {
+  setTimeout(() => {
+    myInput.value = telTrim(e.target.value)
+  }, 0)
+})
+
+// 4
+myInput.addEventListener('paste', e => {
+  setTimeout(() => {
+    myInput.value = telTrim(e.target.value)
+  }, 0)
+})
+
+// 5
+myForm.addEventListener('submit', e => {
+  e.preventDefault()
+  myInput.value = telTrim(myInput.value)
+})
   </script>
 </body>
 
