@@ -1,58 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-    
-  </style>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      .quiz {
+        background-color: white;
+        border: 1px solid #ddd;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
 
-<body>
-    <p>132-0803-3621（短横线需要过滤）</p>
-    <p>132 0803 3621（短横线需要过滤）</p>
-    <p>132-0803-3621@qq.com（短横线不能过滤）</p>
-    <form id="form">
-      <input value="132 0803 3621" name="tel" id="input" placeholder="邮箱或密码" />
-    </form>
-  <script>
+      .quiz-h {
+        font-size: 100%;
+      }
 
-// 1
-function telTrim (str) {
-  return str.match(/[0-9]/g).length === 11 && str.replace(/[-\s]/g, '').length === 11 && str.replace(/[-\s]/g, '') || str
+      .quiz-p {
+        color: gray;
+      }
+
+      /* 方法1 */
+      /* .quiz {
+        display: table;
+      }
+      .quiz-h {
+        display: table-cell;
+        vertical-align: middle;
+        margin: 0 10px;
+      }
+      .quiz-p {
+        text-align: justify;
+        margin: 0 10px;
+      } */
+
+      /*  方法2 */
+      /* .quiz {
+        display: flex;
+        align-items: center;
+      }
+      .quiz-h {
+        margin: 0 10px;
+      }
+      .quiz-p {
+        text-align: justify;
+        margin: 0 10px;
+      } */
+
+      /*  方法3 */
+      /* .quiz-h,
+      .quiz-p {
+        display: inline-block;
+      }
+      .quiz {
+        white-space: nowrap;
+      }
+      .quiz-h {
+        margin: 0 10px;
+      }
+      .quiz-p {
+        text-align: justify;
+        white-space: normal;
+        vertical-align: middle;
+        width: calc(100% - 90px);
+        margin: 0;
+      } */
+
+      /*  方法4 */
+      .quiz-h {
+        position: absolute;
+      }
+.quiz {
+  padding-left: 71px;
+  position: relative;
 }
-console.log(telTrim('132-123-23233@qq.com'))
-console.log(telTrim('132-123-23233'))
-console.log(telTrim('132-123 23233'))
+.quiz-h {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin:auto 10px;
+  height: 0;
+  line-height: 0;
+}
+.quiz-p {
+  text-align: justify;
+  margin: 0 10px;
+}
+    </style>
+  </head>
 
-// 2
-const myForm = document.getElementById('form')
-const myInput = document.getElementById('input')
-console.log(myForm, myInput)
-
-// 3
-myInput.addEventListener('drop', e => {
-  setTimeout(() => {
-    myInput.value = telTrim(e.target.value)
-  }, 0)
-})
-
-// 4
-myInput.addEventListener('paste', e => {
-  setTimeout(() => {
-    myInput.value = telTrim(e.target.value)
-  }, 0)
-})
-
-// 5
-myForm.addEventListener('submit', e => {
-  e.preventDefault()
-  myInput.value = telTrim(myInput.value)
-})
-  </script>
-</body>
+  <body>
+    <div class="quiz">
+      <h6 class="quiz-h">201912</h6>
+      <p class="quiz-p">
+        12月5日，由游戏行业头部媒体游戏陀螺、VR陀螺、陀螺电竞、陀螺财经主办的第四届金陀螺奖颁奖典礼于深圳举办。金陀螺奖是国内游戏业界中最为瞩目的游戏奖项之一，此次大会以“蝶变·向上的力量”为主题，聚焦游戏行业的未来趋势发展、行业创新升级、商业生态新连接等前沿领域，具有极高的代表性和权威性。此次颁奖典礼中，阅文集团根据IP定制改编手游《新斗罗大陆》荣获“年度人气IP类游戏奖”。
+      </p>
+    </div>
+  </body>
 
 </html>
