@@ -26,3 +26,4 @@
 22. [JS基础测试41 - 手机号验证](https://github.com/JaimeCheng/zxx-quiz-summary/issues/22) （[答疑录播](https://www.bilibili.com/video/av78339873)）
 23. [DOM基础测试41 - 手机号格式化](https://github.com/JaimeCheng/zxx-quiz-summary/issues/23) （[答疑录播](https://www.bilibili.com/video/av79175645)）
 24. [CSS基础测试16 - 两栏自适应](https://github.com/JaimeCheng/zxx-quiz-summary/issues/24)
+25. [JS基础测试42 - 字符打点](https://github.com/JaimeCheng/zxx-quiz-summary/issues/25)
